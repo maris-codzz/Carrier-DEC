@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathFinder AI | Next-Gen Career Guidance & Analysis</title>
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Glows -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" id="nav-logo">
+                <i class="fa-solid fa-brain-circuit logo-icon"></i>
+                <span>PathFinder <span class="accent-text">AI</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" id="nav-home"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#analyzer" class="nav-link" id="nav-analyzer"><i class="fa-solid fa-chart-line"></i> AI Analyzer</a>
+                <a href="#about" class="nav-link" id="nav-info"><i class="fa-solid fa-circle-info"></i> Compare Streams</a>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" title="Toggle Dark/Light Mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+        <!-- HERO SECTION -->
+        <section id="hero-section" class="hero-section active-section">
+            <div class="hero-text-container">
+                <div class="badge"><i class="fa-solid fa-sparkles"></i> Guided by Advanced Career Intelligence</div>
+                <h1 class="hero-title">Unlock Your Future After <span class="gradient-text">12th Grade</span></h1>
+                <p class="hero-subtitle">Should you choose an <strong>Engineering College</strong> or an <strong>Arts & Science College</strong>? Let our Career Guidance AI analyze your academic profile along with your interests to find your perfect path.</p>
+                <div class="hero-cta-group">
+                    <button class="btn btn-primary btn-large" id="start-analyzer-btn">
+                        <span>Get Started Free</span> <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-secondary btn-large" id="learn-more-btn">
+                        <span>Compare Streams</span> <i class="fa-solid fa-compass"></i>
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-num">98%</div>
+                        <div class="stat-label">Student Fit</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">15+</div>
+                        <div class="stat-label">Engineering Streams</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">25+</div>
+                        <div class="stat-label">Arts & Science Tracks</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div class="dot-group">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <div class="card-title-bar">career_analyzer_model.py</div>
+                    </div>
+                    <div class="hero-card-body">
+                        <pre><code><span class="code-keyword">import</span> career_ai
+
+<span class="code-comment"># Loading student credentials...</span>
+student = career_ai.load_student_data(
+    grade_10_percent=92.5,
+    grade_12_group=<span class="code-string">"Computer Science"</span>
+)
+
+<span class="code-comment"># Running cognitive interest analysis...</span>
+interests = student.evaluate_interests(
+    tech=95, math=90, research=85
+)
+
+recommendation = career_ai.predict_stream(student, interests)
+print(f<span class="code-string">"Match: {recommendation.best_match}"</span>)
+<span class="code-comment"># Output: Engineering (96% Match) -> CS / AI & ML</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANALYZER WIZARD SECTION -->
+        <section id="analyzer-section" class="analyzer-section">
+            <div class="wizard-container glass-panel">
+                <!-- Wizard Progress Header -->
+                <div class="wizard-progress-header">
+                    <div class="step-indicator active" id="indicator-1">
+                        <div class="step-num">1</div>
+                        <div class="step-text">Student Details</div>
+                    </div>
+                    <div class="step-line" id="line-1"></div>
+                    <div class="step-indicator" id="indicator-2">
+                        <div class="step-num">2</div>
+                        <div class="step-text">Academic Marks</div>
+                    </div>
+                    <div class="step-line" id="line-2"></div>
+                    <div class="step-indicator" id="indicator-3">
+                        <div class="step-num">3</div>
+                        <div class="step-text">Personal Interests</div>
+                    </div>
+                    <div class="step-line" id="line-3"></div>
+                    <div class="step-indicator" id="indicator-4">
+                        <div class="step-num">4</div>
+                        <div class="step-text">AI Analysis</div>
+                    </div>
+                </div>
+
+                <!-- STEP 1: BASIC DETAILS & 10th MARKS -->
+                <div class="wizard-step active-step" id="step-1">
+                    <div class="step-header">
+                        <h2>Personal details & 10th baseline</h2>
+                        <p>Let's start with your name and how you performed in your 10th Standard. This helps us benchmark your foundation.</p>
+                    </div>
+                    <form id="form-step-1" class="wizard-form">
+                        <div class="form-row">
+                            <div class="form-group col-12">
+                                <label for="student-name">Your Full Name <span class="required">*</span></label>
+                                <input type="text" id="student-name" placeholder="Enter your name" required>
+                                <span class="error-msg" id="name-error">Please enter your name</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-4">
+                                <label for="marks-10-total">10th Overall Percentage (%) <span class="required">*</span></label>
+                                <input type="number" id="marks-10-total" min="35" max="100" step="0.1" placeholder="e.g. 85.5" required>
+                                <span class="error-msg" id="m10t-error">Enter percentage between 35 and 100</span>
+                            </div>
+                            <div class="form-group col-4">
+                                <label for="marks-10-math">10th Mathematics Mark (%) <span class="required">*</span></label>
+                                <input type="number" id="marks-10-math" min="0" max="100" placeholder="e.g. 90" required>
+                                <span class="error-msg" id="m10m-error">Enter marks between 0 and 100</span>
+                            </div>
+                            <div class="form-group col-4">
+                                <label for="marks-10-science">10th Science Mark (%) <span class="required">*</span></label>
+                                <input type="number" id="marks-10-science" min="0" max="100" placeholder="e.g. 88" required>
+                                <span class="error-msg" id="m10s-error">Enter marks between 0 and 100</span>
+                            </div>
+                        </div>
+                        <div class="step-actions">
+                            <div></div>
+                            <button type="button" class="btn btn-primary" id="btn-goto-step2">
+                                <span>Next: Academic Stream</span> <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- STEP 2: 12th STREAM & SUBJECT MARKS -->
+                <div class="wizard-step" id="step-2">
+                    <div class="step-header">
+                        <h2>12th Grade Stream & Marks</h2>
+                        <p>Select your 12th standard academic group. The AI will render custom mark inputs based on your subjects.</p>
+                    </div>
+                    <form id="form-step-2" class="wizard-form">
+                        <div class="form-row">
+                            <div class="form-group col-12">
+                                <label for="stream-select">Select your 12th Stream/Group <span class="required">*</span></label>
+                                <div class="custom-select-wrapper">
+                                    <select id="stream-select" required>
+                                        <option value="" disabled selected>Choose your major stream...</option>
+                                        <option value="pcmc">Physics, Chemistry, Maths, Computer Science (PCMC)</option>
+                                        <option value="pcmb">Physics, Chemistry, Maths, Biology (PCMB)</option>
+                                        <option value="pcb">Physics, Chemistry, Biology, Other (Pure Science/PCB)</option>
+                                        <option value="commerce_math">Commerce with Mathematics / Accountancy</option>
+                                        <option value="commerce_no_math">Commerce with Computer Applications / Economics</option>
+                                        <option value="arts">Humanities / Arts Stream</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Subjects Container (Will be filled by app.js) -->
+                        <div id="dynamic-subjects-container" class="form-row dynamic-inputs">
+                            <div class="no-stream-selected-msg col-12">
+                                <i class="fa-solid fa-arrow-pointer"></i> Please select a stream above to input your marks.
+                            </div>
+                        </div>
+
+                        <div class="step-actions">
+                            <button type="button" class="btn btn-secondary" id="btn-backto-step1">
+                                <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
+                            </button>
+                            <button type="button" class="btn btn-primary" id="btn-goto-step3">
+                                <span>Next: Interest Fit</span> <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- STEP 3: INTERESTS & APTITUDE -->
+                <div class="wizard-step" id="step-3">
+                    <div class="step-header">
+                        <h2>Interest & Aptitude Assessment</h2>
+                        <p>Academic marks are only half the picture. Rate your interest in the following areas to refine the AI's predictions.</p>
+                    </div>
+                    <form id="form-step-3" class="wizard-form">
+                        <div class="interest-grid">
+                            <!-- Tech Slider -->
+                            <div class="interest-card glass-card">
+                                <div class="interest-icon-wrapper code-icon">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                                <h3>Coding & Tech</h3>
+                                <p>Programming, app creation, working with computers, cybersecurity.</p>
+                                <div class="slider-wrapper">
+                                    <input type="range" id="interest-tech" min="0" max="100" value="50" class="interest-slider">
+                                    <div class="slider-labels">
+                                        <span>Not interested</span>
+                                        <span class="value-display" id="val-tech">50%</span>
+                                        <span>Love it!</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Math & Analytics Slider -->
+                            <div class="interest-card glass-card">
+                                <div class="interest-icon-wrapper math-icon">
+                                    <i class="fa-solid fa-calculator"></i>
+                                </div>
+                                <h3>Problem Solving & Math</h3>
+                                <p>solving math puzzles, analyzing data, logic problems, algorithms.</p>
+                                <div class="slider-wrapper">
+                                    <input type="range" id="interest-math" min="0" max="100" value="50" class="interest-slider">
+                                    <div class="slider-labels">
+                                        <span>Dislike Math</span>
+                                        <span class="value-display" id="val-math">50%</span>
+                                        <span>Love Math</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bio & Science Research Slider -->
+                            <div class="interest-card glass-card">
+                                <div class="interest-icon-wrapper bio-icon">
+                                    <i class="fa-solid fa-flask"></i>
+                                </div>
+                                <h3>Scientific Research</h3>
+                                <p>Lab experiments, biology, chemistry, inventing medicines, environmental science.</p>
+                                <div class="slider-wrapper">
+                                    <input type="range" id="interest-science" min="0" max="100" value="50" class="interest-slider">
+                                    <div class="slider-labels">
+                                        <span>Boring</span>
+                                        <span class="value-display" id="val-science">50%</span>
+                                        <span>Very curious</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Business & Economics Slider -->
+                            <div class="interest-card glass-card">
+                                <div class="interest-icon-wrapper business-icon">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+                                <h3>Business & Finance</h3>
+                                <p>Startups, investment, stock market, sales, running a company, economics.</p>
+                                <div class="slider-wrapper">
+                                    <input type="range" id="interest-business" min="0" max="100" value="50" class="interest-slider">
+                                    <div class="slider-labels">
+                                        <span>No interest</span>
+                                        <span class="value-display" id="val-business">50%</span>
+                                        <span>Entrepreneurial</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Creative Arts & Design Slider -->
+                            <div class="interest-card glass-card">
+                                <div class="interest-icon-wrapper design-icon">
+                                    <i class="fa-solid fa-palette"></i>
+                                </div>
+                                <h3>Arts, Writing & Design</h3>
+                                <p>Graphic design, writing stories, literature, painting, filmmaking, digital media.</p>
+                                <div class="slider-wrapper">
+                                    <input type="range" id="interest-arts" min="0" max="100" value="50" class="interest-slider">
+                                    <div class="slider-labels">
+                                        <span>Not creative</span>
+                                        <span class="value-display" id="val-arts">50%</span>
+                                        <span>Highly creative</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Social Service & Teaching Slider -->
+                            <div class="interest-card glass-card">
+                                <div class="interest-icon-wrapper social-icon">
+                                    <i class="fa-solid fa-handshake-angle"></i>
+                                </div>
+                                <h3>Teaching & Social Work</h3>
+                                <p>Helping others, counselling, public speaking, teaching, law, social services.</p>
+                                <div class="slider-wrapper">
+                                    <input type="range" id="interest-social" min="0" max="100" value="50" class="interest-slider">
+                                    <div class="slider-labels">
+                                        <span>Prefer solo work</span>
+                                        <span class="value-display" id="val-social">50%</span>
+                                        <span>Love helping</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-actions">
+                            <button type="button" class="btn btn-secondary" id="btn-backto-step2">
+                                <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-sparkle" id="btn-submit-analyzer">
+                                <span>Generate AI Guidance</span> <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- STEP 4: AI LOADING PROCESSING -->
+                <div class="wizard-step" id="step-4">
+                    <div class="processing-container">
+                        <div class="ai-brain-loader">
+                            <i class="fa-solid fa-brain-circuit brain-glow-icon"></i>
+                            <div class="pulse-ring"></div>
+                        </div>
+                        <h2 id="processing-title">Initiating Analysis Engine...</h2>
+                        <div class="loader-bar-bg">
+                            <div class="loader-bar-fill" id="loader-progress"></div>
+                        </div>
+                        <div class="processing-log-window">
+                            <ul id="processing-logs">
+                                <!-- Dynamic logs filled in JS -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- RESULTS DASHBOARD SECTION -->
+        <section id="dashboard-section" class="dashboard-section">
+            <!-- Header buttons -->
+            <div class="dashboard-top-actions">
+                <button class="btn btn-secondary" id="btn-restart"><i class="fa-solid fa-rotate-left"></i> Analyze Another Profile</button>
+                <button class="btn btn-primary" id="btn-print"><i class="fa-solid fa-file-pdf"></i> Export Report (PDF/Print)</button>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Main Recommendation Panel -->
+                <div class="dash-card main-recommendation-card col-span-2 glass-panel">
+                    <div class="recommendation-header">
+                        <div>
+                            <div class="card-badge"><i class="fa-solid fa-robot"></i> Career AI Final Assessment</div>
+                            <h2 class="dash-section-title">Primary Match Recommendation</h2>
+                            <p class="student-profile-summary">Prepared for <strong id="summary-student-name">Student Name</strong> | 12th Stream: <span id="summary-student-stream">PCMC</span></p>
+                        </div>
+                        <div class="stream-badge-display" id="recommended-stream-badge">Engineering</div>
+                    </div>
+
+                    <div class="recommendation-body">
+                        <div class="gauge-container">
+                            <svg class="radial-gauge" viewBox="0 0 120 120">
+                                <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+                                <circle class="gauge-fill" cx="60" cy="60" r="50" id="gauge-circle-fill" transform="rotate(-90 60 60)"></circle>
+                            </svg>
+                            <div class="gauge-text-overlay">
+                                <span class="gauge-num" id="gauge-match-val">0%</span>
+                                <span class="gauge-label">Match Score</span>
+                            </div>
+                        </div>
+                        <div class="recommendation-text-content">
+                            <h3 id="recommendation-title-text">You are highly suited for an Engineering College!</h3>
+                            <p id="recommendation-description-text">Based on your academic grades and interest metrics, our system has compiled a detailed profile breakdown. Below are the key match parameters calculated by the classifier.</p>
+                            <div class="stream-comparison-bars">
+                                <div>
+                                    <div class="comparison-bar-labels">
+                                        <span>Engineering College Track Fit</span>
+                                        <span id="txt-eng-fit">0%</span>
+                                    </div>
+                                    <div class="comparison-bar-bg"><div class="comparison-bar-fill eng-fill" id="bar-eng-fit"></div></div>
+                                </div>
+                                <div>
+                                    <div class="comparison-bar-labels">
+                                        <span>Arts & Science College Track Fit</span>
+                                        <span id="txt-arts-fit">0%</span>
+                                    </div>
+                                    <div class="comparison-bar-bg"><div class="comparison-bar-fill arts-fill" id="bar-arts-fit"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stream Suitability Reasons -->
+                <div class="dash-card glass-panel flex-column reasons-card">
+                    <div class="card-title-header">
+                        <i class="fa-solid fa-scale-balanced card-icon icon-yellow"></i>
+                        <h3>Why this Stream fits you</h3>
+                    </div>
+                    <ul class="analysis-reasons-list" id="suitability-reasons">
+                        <!-- Dynamic reasons go here -->
+                    </ul>
+                </div>
+
+                <!-- Charts (SVG) Panel -->
+                <div class="dash-card chart-card col-span-2 glass-panel">
+                    <h3 class="dash-section-title"><i class="fa-solid fa-chart-simple text-purple"></i> Profile Diagnostics</h3>
+                    <div class="chart-container">
+                        <div class="chart-column">
+                            <h4>Subject Strengths (Normalized)</h4>
+                            <div class="svg-chart-wrapper" id="subject-chart-wrapper">
+                                <!-- Dynamic SVG chart here -->
+                            </div>
+                        </div>
+                        <div class="chart-column">
+                            <h4>Interest Alignment</h4>
+                            <div class="svg-chart-wrapper" id="interest-chart-wrapper">
+                                <!-- Dynamic SVG chart here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommended Courses List -->
+                <div class="dash-card col-span-3 glass-panel courses-panel">
+                    <h3 class="dash-section-title"><i class="fa-solid fa-graduation-cap text-orange"></i> Top Recommended Degree Courses</h3>
+                    <p class="courses-subtext">These courses match your mathematical, logical, or artistic capabilities best, sorted by compatibility.</p>
+                    <div class="courses-grid" id="course-cards-container">
+                        <!-- Dynamic Course Cards (rendered by JS) -->
+                    </div>
+                </div>
+
+                <!-- Stream Explainer - Engineering vs Arts -->
+                <div class="dash-card col-span-3 glass-panel stream-explainer-card">
+                    <h3 class="dash-section-title"><i class="fa-solid fa-circle-nodes text-blue"></i> Understanding Your Path: Engineering vs. Arts & Science</h3>
+                    <div class="comparison-grid">
+                        <div class="comparison-column eng-column">
+                            <h4 class="column-title"><i class="fa-solid fa-gears"></i> Engineering College Track</h4>
+                            <div class="column-subtitle">Technical, Applied Science, Structural & Systems Focus</div>
+                            <ul class="comparison-details">
+                                <li><strong>Duration:</strong> 4 Years (B.E. / B.Tech degree).</li>
+                                <li><strong>Key Methodology:</strong> Practical application of science & mathematics to solve design and engineering problems.</li>
+                                <li><strong>Environment:</strong> Highly rigorous, lab-oriented, project-focused curricula.</li>
+                                <li><strong>Career Entry:</strong> Direct campus placements in IT, manufacturing, electronics, defense, and core domains.</li>
+                                <li><strong>Higher Studies:</strong> M.Tech, M.S. abroad, or MBA.</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-column arts-column">
+                            <h4 class="column-title"><i class="fa-solid fa-flask-vial"></i> Arts & Science College Track</h4>
+                            <div class="column-subtitle">Academic, Specialization, Pure Sciences, Business & Creative Arts</div>
+                            <ul class="comparison-details">
+                                <li><strong>Duration:</strong> 3 Years (B.Sc. / BCA / B.Com / BBA / B.A. degree).</li>
+                                <li><strong>Key Methodology:</strong> Conceptual learning, theory depth, and specialized analytical or artistic mastery.</li>
+                                <li><strong>Environment:</strong> Focuses on research, literature, calculations, or computer applications.</li>
+                                <li><strong>Career Entry:</strong> Fast career entry, suitable for government jobs (UPSC/SSC), Banking, corporate analysts, or software developers.</li>
+                                <li><strong>Higher Studies:</strong> M.Sc., MCA (ideal for computer applications), M.Com, MBA, or research fellowships.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- STREAM INFO COMPARISON MODAL OR PANEL -->
+        <section id="info-section" class="info-section">
+            <div class="info-container glass-panel">
+                <h2>Stream Guide: Engineering vs Arts & Science</h2>
+                <p>Not sure what makes them different? Here is a breakdown of what to expect in each system, helping you make the final choice.</p>
+                
+                <div class="stream-comparison-table-wrapper">
+                    <table class="stream-table">
+                        <thead>
+                            <tr>
+                                <th>Criteria</th>
+                                <th>Engineering Colleges</th>
+                                <th>Arts & Science Colleges</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Degrees Awarded</strong></td>
+                                <td>B.E., B.Tech (4 Years)</td>
+                                <td>B.Sc., BCA, B.Com, BBA, B.A. (3 Years)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Core Focus</strong></td>
+                                <td>Design, technology integration, math applications, engineering design.</td>
+                                <td>Pure sciences theory, business operations, computing platforms, creative arts.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cost & Fees</strong></td>
+                                <td>Generally higher tuition fees, requires labs, workshop equipment, and technical facilities.</td>
+                                <td>Moderate tuition fees, highly accessible, research lab focus for B.Sc.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Admission Process</strong></td>
+                                <td>Based on Entrance Exams (e.g. JEE, state cut-offs) and physics-chemistry-math marks.</td>
+                                <td>Based on 12th Board marks. Highly accessible, merit-list basis.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Career Trajectory</strong></td>
+                                <td>Structured tech jobs, site engineers, system developers, hardware designing.</td>
+                                <td>Extremely versatile. Coding (via BCA/B.Sc.), research, banking, administration, design.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 30px; display: flex; justify-content: center;">
+                    <button class="btn btn-primary" id="btn-back-to-home">Back to Home</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FLOATING CHATBOT WIDGET -->
+    <div class="chatbot-widget" id="chatbot-widget">
+        <!-- Floating Button -->
+        <button class="chatbot-btn" id="chatbot-toggle-btn" title="Ask Career AI Counselor">
+            <i class="fa-solid fa-comments"></i>
+            <span class="chat-badge">AI</span>
+        </button>
+
+        <!-- Chat Window -->
+        <div class="chat-window glass-panel" id="chat-window">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <div>
+                        <h4>Career AI Advisor</h4>
+                        <span class="chat-status"><span class="status-dot"></span> Online Counsel</span>
+                    </div>
+                </div>
+                <button class="chat-close" id="chat-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="chat-messages" id="chat-messages">
+                <div class="message system-message">
+                    Hello! I'm your Career AI Counselor. Complete the analysis questionnaire above first, and I can give you personalized answers about your recommended streams, specific colleges, salaries, or higher education details!
+                </div>
+            </div>
+
+            <!-- Quick Suggestions -->
+            <div class="chat-quick-suggestions" id="chat-suggestions">
+                <!-- Filled dynamically based on recommendations -->
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Ask about colleges, courses, or salaries...">
+                <button id="chat-send-btn" class="chat-send"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2026 PathFinder AI Career Guidance Platform. All rights reserved.</p>
+        <p class="footer-sub">A premium advisory platform powered by heuristic cognitive modeling.</p>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+</html>
